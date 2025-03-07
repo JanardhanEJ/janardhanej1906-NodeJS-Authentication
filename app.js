@@ -7,7 +7,7 @@ import session from "express-session"; // Importing express-session for session 
 import passport from "passport"; // Importing passport for authentication
 import { Strategy as GoogleStrategy } from "passport-google-oauth20"; // Importing Google OAuth 2.0 strategy for passport
 
-import { connectUsingMongoose } from "./config/mongodb.js"; // Importing MongoDB connection function
+import { connectToDBUsingMongoose } from "./config/mongodb.js"; // Importing MongoDB connection function
 import router from "./routes/routes.js"; // Importing main application routes
 import authrouter from "./routes/authRoutes.js"; // Importing authentication routes
 
@@ -38,7 +38,7 @@ passport.use(
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
       callbackURL:
-        "http://localhost:3001/auth/google/callback",
+        "http://localhost:3000/auth/google/callback",
       scope: ["profile", "email"],
     },
     function (accessToken, refreshToken, profile, callback) {
@@ -61,7 +61,7 @@ app.use(ejsLayouts); // Use base template
 app.set("views", path.join(path.resolve(), "views")); // Define template directory
 
 // DB Connection
-connectUsingMongoose();
+connectToDBUsingMongoose();
 
 //ROUTES
 app.get("/", (req, res) => {
