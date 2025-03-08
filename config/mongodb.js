@@ -7,7 +7,7 @@ const dbUri = process.env.DB_URL;  // Fetching MongoDB connection URL from envir
 // Function to establish a connection to MongoDB using Mongoose
 export const connectToDBUsingMongoose = async () => {
     try {
-         // Attempt to establish a connection with MongoDB
+        // Attempt to establish a connection with MongoDB
         await mongoose.connect(dbUri);
 
         // Log success message if the connection is established

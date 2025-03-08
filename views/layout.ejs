@@ -3,72 +3,93 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Node Authentication</title>
+    <title>NodeJS Authentication System</title>
+
     <!-- Bootstrap CSS -->
     <link
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
     />
+
+    <!-- Google reCAPTCHA API -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <style>
-      /* Background image style */
-      body {
-        background-image: url("/cn.png");
+      /* Full-screen layout with centered content */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
-        background-color: black;
+        background-color: rgb(2, 2, 18);
         background-attachment: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Center the main content */
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+      }
+
+      /* Styling for the authentication form container */
+      .auth-container {
+        backdrop-filter: blur(5px);
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        width: 100%;
+        max-width: 400px;
+      }
+
+      h1, h2, p {
+        color: white;
+      }
+
+      /* Input field styling */
+      input {
+        border: 3px solid rgb(60, 63, 63);
+        border-radius: 5px;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      /* Navbar styling */
+      .navbar {
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        padding: 10px 0;
       }
 
       .navbar-brand {
         color: #fff !important;
       }
 
-      .main-content {
-        background: rgba(
-          0,
-          0,
-          0,
-          0.5
-        ); /* Add a semi-transparent background to main content for readability */
-        padding: 20px;
-        border-radius: 5px;
-        margin-left: 50px;
-      }
-      h1,
-      h2,
-      p {
-        color: white;
-      }
-      input {
-        border: 3px solid rgb(60, 63, 63);
-        border-radius: 5px;
-      }
-      section {
-        padding-left: 20px;
-        backdrop-filter: blur(3px);
-        background-color: rgba(
-          255,
-          255,
-          255,
-          0.25
-        ); /* Adjust the transparency as needed */
-        border: 1px solid rgba(255, 255, 255, 0.01);
-        border-radius: 16px;
-        display: inline-block;
-        height: auto;
-        width: auto;
-        margin-top: 20px;
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .auth-container {
+          width: 90%;
+        }
       }
     </style>
   </head>
+
   <body>
+    <!-- Navigation Bar -->
     <header>
-      <nav
-        class="navbar navbar-expand-lg navbar-dark"
-        style="background-color: rgb(66, 66, 66); border: 4px solid #100f0f3e"
-      >
+      <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
           <a class="navbar-brand mx-auto" href="#">
             <strong>NodeJS Authentication System</strong>
@@ -76,11 +97,15 @@
         </div>
       </nav>
     </header>
+
+    <!-- Main Content (Dynamic Content Injected Here) -->
     <main>
-      <!-- This is where content from other pages will be injected -->
-      <%- body %>
+      <div class="auth-container">
+        <%- body %>
+      </div>
     </main>
-    <!-- Bootstrap JS and dependencies -->
+
+    <!-- Bootstrap JS and Dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

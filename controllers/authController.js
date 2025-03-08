@@ -39,8 +39,8 @@ export  class GoogleSignInController {
     signInFailed = (req, res) => {
         res.status(401).json({
             error: true,
-            message: "Login unsuccessful..!",
+            message: "Login Unsuccessful..!",
         });
     }
 
-}
+};

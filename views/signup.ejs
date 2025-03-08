@@ -1,23 +1,28 @@
-
 <section>
-    <h1>Sign Up</h1>
+    <h2><strong>Create an Account</strong></h2>
+
+    <!-- Display message if any (e.g., success or error notifications) -->
     <% if (message) { %>
         <p><%= message %></p>
     <% } %>
+
+    <!-- User sign-up form -->
     <form action="/user/signup" method="post">
-        <input type="text" name="username" placeholder="Username" autocomplete="off" required><br><br>
-        <input type="email" name="email" placeholder="Email" autocomplete="off" required><br><br>
-        <input type="password" name="password" placeholder="Password" autocomplete="off" required><br><br>
+        <input type="text" name="username" placeholder="Enter Username" autocomplete="off" required><br><br>
+        <input type="email" name="email" placeholder="Enter Email" autocomplete="off" required><br><br>
+        <input type="password" name="password" placeholder="Create Password" autocomplete="off" required><br><br>
         <input type="password" name="cpassword" placeholder="Confirm Password" autocomplete="off" required><br><br>
-        <div class="g-recaptcha" data-sitekey="6LdnvXkqAAAAANagydKoO3Sv4zLgRSEeXzrEk_p5"></div>
+        <div class="g-recaptcha" data-sitekey="6LdnvXkqAAAAANagydKoO3Sv4zLgRSEeXzrEk_p5"></div> <br>
+
+        <!-- Submit button for Signing Up  -->
         <button type="submit" class="btn btn-light"><strong>Sign Up</strong></button>
     </form>
     <br>
-    <!-- Sign-up Google Auth -->
-    <a href="/auth/google"><strong>Sign In with Google</strong></a>
 
-    <p><strong>Already have an account?</strong> <a href="/user/signin"><strong>Sign in</strong></a></p>
+    <!-- Option to sign up using Google authentication -->
+    <a href="/auth/google"><strong>Sign In with Google..</strong></a>
+
     <!-- Link to sign-in page -->
+    <p><strong>Already have an account?</strong> <a href="/user/signin"><strong>Sign In</strong></a></p>
 
 </section>
-

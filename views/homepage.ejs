@@ -1,21 +1,24 @@
 <section>
-    <h1><strong>Welcome to the Home Page</strong></h1>
+    <h1><strong>Welcome to the Home Page...!!!</strong></h1>
     <div>
-        <button class="btn btn-light" onclick="signOut()">Sign Out</button>
-        <button class="btn btn-light" onclick="resetPassword()">Change Password</button>
+        <!-- Button to sign out the user -->
+        <button class="btn btn-light" onclick="signOut()"><strong>Sign Out</strong></button>
+
+         <!-- Button to navigate to the change password page -->
+        <button class="btn btn-light" onclick="resetPassword()"><strong>Change Your Password</strong></button>
     </div>  
 </section>
 
     <script>
         // Function to handle sign-out
         function signOut() {
-            // Perform sign-out logic (e.g., redirect to sign-out route)
+            // Perform sign-out logic (e.g., Redirects the user to the sign-out route to log out from the application.)
             window.location.href = "/user/signout";
         }
 
         // Function to handle reset password
         function resetPassword() {
-            // Perform reset password logic (e.g., redirect to reset password route)
+            // Perform reset password logic (e.g., Redirects the user to the change password page.)
             window.location.href = "/user/change-password";
         }
     </script>
