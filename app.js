@@ -39,7 +39,8 @@ passport.use(
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
       callbackURL:
-        "http://localhost:3000/auth/google/callback",
+        //"http://localhost:3000/auth/google/callback",  // to run code locally
+        "https://janardhanej1906-nodejs-authentication.onrender.com/auth/google/callback", // to run code on render
       scope: ["profile", "email"],
     },
     function (accessToken, refreshToken, profile, callback) {
@@ -65,11 +66,16 @@ app.set("views", path.join(path.resolve(), "views")); // Define template directo
 connectToDBUsingMongoose();
 
 // ---- ROUTES ----
-app.get("/", (req, res) => {
-  res.send("Welcome!! Visit /user/signin for the login page...");
+//app.get("/", (req, res) => {
+  //res.send("Welcome!! Visit /user/signin for the login page...");
+//});
+//commented above to directly redirect to signin page instead of welcome message
+app.get('/', (req, res) => {
+  res.redirect('/user/signin');
 });
 app.use("/user", router);
 app.use("/auth", authrouter);
+
 
 // ---- STATIC FILES ----
 app.use(express.static("public"));
