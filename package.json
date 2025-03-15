@@ -1,14 +1,14 @@
 {
   "name": "nodejs-authentication-app",
   "version": "1.0.0",
-  "description": "This App is a basic authentication system built with NodeJS, Express, Mongoose  and PassportJS",
+  "description": "This App is a Basic Authentication System built with NodeJS and its related dependencies",
   "main": "app.js",
   "type": "module",
   "scripts": {
     "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Ravikant Singh",
+  "author": "Janardhan E J",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
