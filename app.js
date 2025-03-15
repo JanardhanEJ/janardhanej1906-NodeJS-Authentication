@@ -1,34 +1,35 @@
-import express from "express"; // Importing express for the web framework
-import bodyParser from "body-parser"; // Importing bodyParser for parsing request bodies
-import ejsLayouts from "express-ejs-layouts"; // Importing express-ejs-layouts for layout support
-import path from "path"; // Importing express-ejs-layouts for layout support
-import dotenv from "dotenv"; // Importing dotenv to load environment variables
+import express from "express"; // Importing express for the web framework or to create the authentication router
+import bodyParser from "body-parser"; // Importing bodyParser for parsing incoming request bodies
+import ejsLayouts from "express-ejs-layouts"; // Importing express-ejs-layouts for layout support with EJS
+import path from "path"; // Importing path for handling Built-in module file paths
+import dotenv from "dotenv"; // Importing dotenv for loading environment variables
 import session from "express-session"; // Importing express-session for session management
 import passport from "passport"; // Importing passport for authentication
 import { Strategy as GoogleStrategy } from "passport-google-oauth20"; // Importing Google OAuth 2.0 strategy for passport
 
-import { connectToDBUsingMongoose } from "./config/mongodb.js"; // Importing MongoDB connection function
+import { connectToDBUsingMongoose } from "./config/mongodb.js"; // Importing MongoDB database connection function
 import router from "./routes/routes.js"; // Importing main application routes
-import authrouter from "./routes/authRoutes.js"; // Importing authentication routes
+import authrouter from "./routes/authRoutes.js"; // Importing authentication-related routes
 
-dotenv.config(); // Loading environment variables from .env file
-const app = express(); // Initializing express application
+dotenv.config(); // Initialize dotenv to access/load environment variables from .env file
+const app = express(); // Initializing express application instance
 
-//SESSION
+
+// ---- SESSION CONFIGURATION ----
 app.use(
   session({
-    secret: "SecretKey",
+    secret: "SecretKey",  // Use a secure secret key
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false },
+    cookie: { secure: false }, // Set to true if using HTTPS
   })
 );
 
-//MIDDLEWARE
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// ---- MIDDLEWARE ----
+app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded data
+app.use(bodyParser.json()); // Parse JSON data
 
-//Passport
+// ---- PASSPORT SETUP ----
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -55,23 +56,25 @@ passport.deserializeUser((user, done) => {
   done(null, user);
 });
 
-// Set Templates
+// ----  SET TEMPLATES ----
 app.set("view engine", "ejs"); // Define template engine
-app.use(ejsLayouts); // Use base template
+app.use(ejsLayouts); // Use EJS layouts for consistent templates
 app.set("views", path.join(path.resolve(), "views")); // Define template directory
 
-// DB Connection
+// ---- CONNECT TO DATABASE ----
 connectToDBUsingMongoose();
 
-//ROUTES
+// ---- ROUTES ----
 app.get("/", (req, res) => {
-  res.send("Hey Ninja ! Go to /user/signin for the login page.");
+  res.send("Welcome!! Visit /user/signin for the login page...");
 });
 app.use("/user", router);
 app.use("/auth", authrouter);
+
+// ---- STATIC FILES ----
 app.use(express.static("public"));
 
-//LISTEN
+// ---- SERVER LISTENING ----
 app.listen(process.env.PORT, () => {
-  console.log(`Server is running on port ${process.env.PORT}`);
+  console.log(`Server running on http://localhost:${process.env.PORT}`);
 });
