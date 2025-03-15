@@ -4,6 +4,10 @@ This project is a Complete Authentication System using Node.js, Express and Mong
 User Login/Logout, Password Reset and Google Authentication for Signing in and Signing up.
 
 
+## Live Demo
+Link:
+
+
 ## Features Implemented
 
 - **Sign-up with Email**: Create an account using your email and password.
@@ -70,8 +74,74 @@ Follow these steps to run the project locally:
    npm start
 5. Open your web browser and visit http://localhost:3000 to access the application.
 
-## Screenshots:
 
+## Screenshots: (taken locally)
+1. Open your web browser and go to http://localhost:3000/user/signin
+You will see a login page like this:
+![alt text](image-1.png)
 
+## 2. Sign Up
+a) If you don’t have an account, click on the Sign Up link.
+Fill in all the required details, complete the reCAPTCHA verification and click on the Sign Up button.
+eg: ![alt text](image-2.png)
 
-## Live Demo
+b) Few common errors while Signing Up:
+![alt text](image-17.png)
+![alt text](image-18.png)
+![alt text](image-19.png)
+
+c) After a successful sign-up, you will see a notification like this:
+![alt text](image-3.png)
+
+d) Sample database entry:
+![alt text](image-4.png)
+
+## 3. Sign In
+Use the same email and password used during registration.
+Complete the reCAPTCHA verification and click on the Sign In button.
+Example: ![alt text](image-5.png)
+
+a) If the entered details match, you will be redirected to the homepage:
+![alt text](image-6.png)
+
+b) If the entered details do not match, an Invalid credentials error notification will be displayed:
+![alt text](image-7.png)
+
+## 4. Change Password
+a) After a successful login, you can change your password by clicking on the Change Password button.
+Fill in the required details and complete the reCAPTCHA verification.
+Example: ![alt text](image-8.png)
+
+b) After a successful password change, you will see a notification like this:
+![alt text](image-9.png)
+
+c) If you enter your old password incorrectly, an Invalid credentials error notification will appear like this:
+![alt text](image-16.png)
+
+## 5. Sign Out
+After a successful login, you can sign out by clicking on the Sign Out button.
+After signing out, you will see a notification like this:
+![alt text](image-10.png)
+
+## 6. Sign In with Google
+a) To sign in with Google, click on the Sign in with Google link. It will redirect you to the Google sign-in page:
+![alt text](image-11.png)
+
+b) After a successful Google sign-in, you will be redirected to the homepage:
+![alt text](image-6.png)
+
+## 7. Forgot/Reset Password
+a) If you forget your password, click on the Forgot Password link.
+Fill in the required details, complete the reCAPTCHA verification and click on the Forgot Password button.
+Example: ![alt text](image-12.png)
+
+b) After a successful password reset, you will see a notification like this:
+![alt text](image-13.png)
+
+c)Then check your registered email. A temporary new password will be sent from the admin's email address to your registered email address:
+Example: ![alt text](image-14.png)
+
+Use the temporary new password (sent via email) to sign in and then change your password.
+
+d) If you enter an unregistered email ID, a User does not exist notification will appear like this:
+![alt text](image-15.png)
